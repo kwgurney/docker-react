@@ -9,6 +9,9 @@ RUN npm run build
 # Second section is the prod server.
 # (Don't have to label it with "as". Previous block ("builder") is done now.)
 FROM nginx
+# "docker run -p 80:80"
+EXPOSE 80
+
 # NOTE: /app/build in the container is the stuff we want
 COPY --from=builder /app/build  /usr/share/nginx/html
 
